@@ -5,6 +5,8 @@
 /etc/init.d/apache2 start;
 /etc/init.d/mysql start;
 
+mysql -e "grant all on aula.* to copeito@127.0.0.1 identified by 'secreto'";
+
 #Lanza una shell bash
 /bin/bash;
 
