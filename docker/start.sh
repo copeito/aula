@@ -5,7 +5,10 @@
 /etc/init.d/apache2 start;
 /etc/init.d/mysql start;
 
+mysql -e "create database aula"
 mysql -e "grant all on aula.* to copeito@127.0.0.1 identified by 'secreto'";
+
+php /var/www/html/artisan migrate
 
 #Lanza una shell bash
 /bin/bash;

@@ -13,7 +13,7 @@ RUN apt update -y --fix-missing
 RUN apt-get install -y php php-mysql php-mbstring php-zip php-gd php-imagick
 
 #Instalación de herramientas auxiliares
-RUN apt-get install -y nano curl
+RUN apt-get install -y nano
 
 #Apache2
 #instalación
@@ -23,7 +23,7 @@ RUN a2enmod rewrite
 #activa la lectura de los .htaccess por Apache2
 RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
 #establece "/var/www/html/public" como directorio público de apache
-RUN /usr/bin/find /etc/apache2/ -type f -exec grep -l "/var/www/html" {} \; | xargs -i sed -i "s/\/var\/www\/html/\/var\/www\/html\/public/g" {}
+#RUN /usr/bin/find /etc/apache2/ -type f -exec grep -l "/var/www/html" {} \; | xargs -i sed -i "s/\/var\/www\/html/\/var\/www\/html\/public/g" {}
 
 #Mysql
 RUN apt-get install -y mariadb-common mariadb-server mariadb-client

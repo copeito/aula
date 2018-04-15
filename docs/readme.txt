@@ -12,6 +12,11 @@
 	sudo chmod g+wx -R laravel/
 
 # Instalado módulo de autenticación de Laravel
-
 	php artisan make:auth
 	php artisan migrate
+
+# Instalación de spatie/laravel-permission, que complementa al módulo de autenticación de Laravel añadiéndole roles.
+	composer require spatie/laravel-permission
+	php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
+	php artisan migrate
+	php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"
