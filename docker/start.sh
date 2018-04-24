@@ -8,7 +8,7 @@
 mysql -e "create database aula"
 mysql -e "grant all on aula.* to copeito@127.0.0.1 identified by 'secreto'";
 
-php /var/www/html/artisan migrate
+php /var/www/html/artisan migrate --seed
 
 #Lanza una shell bash
 /bin/bash;
