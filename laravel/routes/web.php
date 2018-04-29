@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,3 +20,37 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get(
+    '/dentro',
+    function ()
+    {
+        $user = Auth::user();
+        if ($user){
+            if ($user->hasRole('admin')){
+                echo "Es administrador";
+            }else{
+                echo "Es plebe";
+            }
+        }else{
+            echo "Non e un carallo";
+        }
+    }
+);
+
+Route::get(
+    '/dentro2',
+    function ()
+    {
+        $user = Auth::user();
+        if ($user){
+            if ($user->can('view_teachers')){
+                echo "Cotilleando a los profes";
+            }elseif ($user->can('view_students')){
+                echo "Cotilleando a los alumnos";
+            }
+        }else{
+            echo "Non e un carallo";
+        }
+    }
+);
