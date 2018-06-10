@@ -14,11 +14,12 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::orderBy('id');
+        
+        /*$students = Student::orderBy('id');
         return view(
             'Student.index',
             compact('students')
-        );
+        );*/
     }
 
     /**
@@ -39,18 +40,11 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        /*print $request->getContent()."<br>";
-        foreach($request->all() as $field => $value){
-            print $field.' = '.$value."<br>";
-        }
-
-        print "Nombre es ".$request->input('name');
-        print "Nombre es ".$request->input('phone');
-        die;*/
         $request->validate([
-            'name' => 'bail|required|max:191',
-            'email' => 'bail|required|email|max:191'
+            'name' => 'required|max:191',
+            'email' => 'nullable|email|max:191'
         ]);
+        Student::create($request->all());
         return view('Student.store', compact($request));
     }
 
