@@ -20,3 +20,7 @@
 	php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
 	php artisan migrate
 	php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"
+
+# Añadidos ficheros de traducción al Castellano de mensajes propios de Laravel
+	composer require laraveles/spanish
+	php artisan vendor:publish --tag=lang
