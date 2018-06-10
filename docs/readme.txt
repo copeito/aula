@@ -24,3 +24,6 @@
 # Añadidos ficheros de traducción al Castellano de mensajes propios de Laravel
 	composer require laraveles/spanish
 	php artisan vendor:publish --tag=lang
+
+	Cambiado fichero config/app.php para que cargue el idioma Español por defecto 
+		'locale' => 'es',
