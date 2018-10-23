@@ -1,0 +1,11 @@
+Crear trait con el método "getInstance": current
+
+[vendor/copeito/propertyManager/PropertyManager.php]
+	Crear paquete con este componente instalable en cualquier proyecto laravel desde Composer
+
+[vendor/copeito/grid/Grid.php]
+	Crear paquete con este componente instalable en cualquier proyecto laravel desde Composer. Previamente será necesario hacer lo propio con el componente propertyManager
+
+Crear trait vendor/copeito/multiton/Multiton.php
+
+Crear clase vendor/copeito/model/Model.php que implemente el patrón de diseño Multiton
