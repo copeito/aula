@@ -9,6 +9,12 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script src="/js/copeitoFormPopulator.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
     <style type="text/css">
     	.table {
@@ -30,52 +36,22 @@
             method: 'POST'
         });
 
-        $('form input, form button').each(function (){
-                $('<div>').insertBefore($(this));
-                $('<div>').insertAfter($(this));
+        $('.copeitoGrid').each(
+            function (){
+                $(this).DataTable();
+            }
+        )
+        $(document).ready(
+            function (){
+                $('.copeitoGrid').each(
+                    function (){
+                        $(this).DataTable();
+                    }
+                );
+            }
+        );
 
-                $(this).attr('name', $(this).attr('id'));
-
-                if ($(this).attr('type') == undefined){
-                    $(this).attr(
-                        'type',
-                        ($(this).is(":button")) ? 'submit' : 'text'
-                    );
-                }
-
-                if ($(this).attr('label')){
-                    $('<label for="'+$(this).attr('id')+'">'+$(this).attr('label')+'</label>').insertBefore($(this));
-                    $(this).removeAttr('label');
-                }
-
-                if ($(this).attr('help')){
-                    var idHelper = $(this).attr('id')+'HelpBlock';
-
-                    $(this).attr('aria-describedby', idHelper);
-
-                    $('<small id="'+idHelper+'">'+$(this).attr('help')+'</small>').insertAfter($(this));
-
-                    $(this).removeAttr('help');
-                }
-
-                if ($(this).attr('msgOnInvalid')){
-                    $(this).attr('oninvalid', 'this.setCustomValidity("'+$(this).attr('msgOnInvalid')+'")');
-                    $(this).removeAttr('msgOnInvalid');
-                }
-
-                switch(($(this).attr('type'))){
-                    case 'text':
-                    case 'email':
-                    case 'tel':
-                        $(this).attr('maxlength','191');
-                        break;
-                }
-
-                if ($(this).attr('required') && ($(this).attr('type') == 'text')){
-                    $(this).attr('onchange', 'this.setCustomValidity("")');
-                }
-
-        });
+        copeitoFormPopulator.populateAll();
 
         $("form div").addClass("form-group");
         $("form input").addClass("form-control");

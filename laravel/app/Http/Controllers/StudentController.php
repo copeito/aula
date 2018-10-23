@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use Illuminate\Http\Request;
+use copeito\Grid;
 
 class StudentController extends Controller
 {
@@ -14,12 +15,21 @@ class StudentController extends Controller
      */
     public function index()
     {
-        
-        /*$students = Student::orderBy('id');
-        return view(
-            'Student.index',
-            compact('students')
-        );*/
+        $grid = new Grid([
+            'dataSource' => ([
+                'type' => 'model',
+                'model' => 'App\Student',
+                'fields' => ([
+                    'name' => 'Nombre',
+                    'surnames' => 'Apellidos',
+                    'phone' => 'Teléfono',
+                    'address' => 'Dirección postal',
+                    'email' => 'Email'
+                ])
+            ]),
+            'view' => 'Student.grid'
+        ]);
+        return $grid->render();
     }
 
     /**
