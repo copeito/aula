@@ -1,4 +1,4 @@
-Crear trait con el método "getInstance": current
+Crear trait con el método "getInstance": done
 
 [vendor/copeito/propertyManager/PropertyManager.php]
 	Crear paquete con este componente instalable en cualquier proyecto laravel desde Composer
