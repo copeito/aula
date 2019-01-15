@@ -15,7 +15,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $grid = new Grid([
+        return Grid::getInstance([
             'dataSource' => ([
                 'type' => 'model',
                 'model' => 'App\Student',
@@ -28,8 +28,7 @@ class StudentController extends Controller
                 ])
             ]),
             'view' => 'Student.grid'
-        ]);
-        return $grid->render();
+        ])->render();
     }
 
     /**
