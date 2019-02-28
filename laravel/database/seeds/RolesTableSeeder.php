@@ -14,7 +14,9 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
         Role::create(['name' => 'admin'])->syncPermissions(
-            Permission::getPermissions()
+            Permission::getPermissions(
+                array()
+            )
         );
         Role::create(['name' => 'teacher'])->givePermissionTo(
             'view_students'
