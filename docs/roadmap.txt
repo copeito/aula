@@ -6,6 +6,9 @@ Crear trait con el método "getInstance": done
 [vendor/copeito/grid/Grid.php]
 	Crear paquete con este componente instalable en cualquier proyecto laravel desde Composer. Previamente será necesario hacer lo propio con el componente propertyManager
 
+El paquete aula debe ser instalable en cualquier sistema y en cualquier ruta con el comando siguiente:
+	"git clone https://github.com/copeito/aula.git"
+
 Crear trait vendor/copeito/multiton/Multiton.php
 
 Crear clase vendor/copeito/model/Model.php que implemente el patrón de diseño Multiton
