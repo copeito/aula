@@ -9,6 +9,8 @@ Crear trait con el método "getInstance": done
 El paquete aula debe ser instalable en cualquier sistema y en cualquier ruta con el comando siguiente:
 	"git clone https://github.com/copeito/aula.git"
 
+	Modificar los comandos correspondientes para que deje de apuntar a /home/copeito
+
 Crear trait vendor/copeito/multiton/Multiton.php
 
 Crear clase vendor/copeito/model/Model.php que implemente el patrón de diseño Multiton
