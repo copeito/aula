@@ -33,8 +33,8 @@ RUN find /etc/mysql -type f -exec grep -El "^bind-address" {} \; | xargs -i sed 
 #Instala composer
 RUN apt-get install -y composer
 
-#Crea el usuario copeito (útil para ejecutar composer, puesto que no se permite el uso de root)
-RUN useradd copeito -m -G www-data
+#Crea el usuario aula (útil para ejecutar composer, puesto que no se permite el uso de root)
+RUN useradd aula -m -G www-data
 
 ADD start.sh /start.sh
 

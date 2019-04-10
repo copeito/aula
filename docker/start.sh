@@ -6,7 +6,7 @@
 /etc/init.d/mysql start;
 
 mysql -e "create database aula"
-mysql -e "grant all on aula.* to copeito@127.0.0.1 identified by 'secreto'";
+mysql -e "grant all on aula.* to aula@127.0.0.1 identified by 'secreto'";
 
 php /var/www/html/artisan migrate --seed
 
