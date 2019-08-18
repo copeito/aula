@@ -25,5 +25,8 @@
 
 	docker build . -t "aula"
 
+[Host]
+	aptiude install composer (¿podría ser movido a docker?)
+
 Siguientes pasos:
 	
