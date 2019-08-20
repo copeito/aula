@@ -9,7 +9,8 @@ Crear trait con el método "getInstance": done
 El paquete aula debe ser instalable en cualquier sistema y en cualquier ruta con el comando siguiente:
 	"git clone https://github.com/copeito/aula.git"
 
-	Modificar los comandos correspondientes para que deje de apuntar a /home/copeito
+	Modificar los comandos correspondientes para que deje de apuntar a /home/copeito: done
+	Conflicto: no importa las librerías ubicadas en laravel/vendor: pendiente
 
 Crear trait vendor/copeito/multiton/Multiton.php
 
