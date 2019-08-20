@@ -1,0 +1,15 @@
+{
+    "name": "copeito/grid",
+    "description": "Lists data in a grid",
+    "type": "library",
+    "require": {
+        "copeito/propertymanager": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "David Rey",
+            "email": "copeito@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
